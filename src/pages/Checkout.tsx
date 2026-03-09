@@ -74,6 +74,17 @@ const Checkout = () => {
             </div>
 
             <div className="space-y-2 pt-2">
+              <h3 className="text-xs uppercase tracking-wider text-muted-foreground font-display">Nós Aceitamos</h3>
+              <div className="flex flex-wrap gap-2">
+                {["Visa", "Mastercard", "Elo", "Pix"].map(m => (
+                  <span key={m} className="bg-secondary border border-border px-3 py-1.5 rounded text-xs font-medium">
+                    {m}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-2 pt-2">
               <h3 className="text-xs uppercase tracking-wider text-muted-foreground font-display">Formas de Pagamento</h3>
               <div className="grid grid-cols-2 gap-2">
                 {[
@@ -106,6 +117,10 @@ const Checkout = () => {
             <button className="w-full bg-primary text-primary-foreground font-bold py-3 rounded-lg hover:opacity-90 transition-opacity neon-glow">
               Confirmar Pedido
             </button>
+
+            <p className="text-xs text-center text-muted-foreground">
+              Vendido e entregue por <strong>LOJA XYTRON</strong>
+            </p>
           </div>
         </div>
       </div>

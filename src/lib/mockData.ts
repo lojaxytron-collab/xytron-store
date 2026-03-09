@@ -4,57 +4,151 @@ export interface Product {
   price: number;
   originalPrice?: number;
   image: string;
+  images?: string[];
   category: string;
   sizes: string[];
   description: string;
   badge?: string;
+  tag?: string;
 }
 
 export const products: Product[] = [
+  // Camisetas
   {
-    id: "1",
+    id: "c1",
     name: 'Camiseta Oversized "Neon Edge"',
     price: 149.90,
     originalPrice: 199.90,
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=600&h=600&fit=crop",
+    ],
     category: "Camisetas",
     sizes: ["P", "M", "G", "GG"],
     description: "Camiseta oversized premium com acabamento de primeira linha. Tecido 100% algodão penteado, caimento solto e confortável.",
-    badge: "30% OFF",
+    badge: "25% OFF",
+    tag: "restam poucas unidades com desconto",
   },
   {
-    id: "2",
+    id: "c2",
+    name: 'Camiseta Streetwear "Urban Black"',
+    price: 129.90,
+    originalPrice: 179.90,
+    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&h=600&fit=crop",
+    ],
+    category: "Camisetas",
+    sizes: ["P", "M", "G", "GG"],
+    description: "Camiseta preta com estampa exclusiva streetwear. Tecido premium 100% algodão.",
+    badge: "28% OFF",
+    tag: "restam poucas unidades com desconto",
+  },
+  {
+    id: "c3",
+    name: 'Camiseta Básica "Essential White"',
+    price: 99.90,
+    originalPrice: 139.90,
+    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&h=600&fit=crop",
+    category: "Camisetas",
+    sizes: ["P", "M", "G", "GG"],
+    description: "Camiseta básica branca com tecido premium. Peça essencial para qualquer guarda-roupa.",
+    badge: "29% OFF",
+  },
+  {
+    id: "c4",
+    name: 'Camiseta Tie Dye "Color Wave"',
+    price: 139.90,
+    originalPrice: 189.90,
+    image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=600&h=600&fit=crop",
+    category: "Camisetas",
+    sizes: ["P", "M", "G", "GG"],
+    description: "Camiseta tie dye com padrão único. Cada peça é exclusiva.",
+    badge: "26% OFF",
+  },
+
+  // Calças
+  {
+    id: "ca1",
     name: 'Calça Cargo "Street Flow"',
     price: 229.90,
     originalPrice: 329.90,
     image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&h=600&fit=crop",
+    ],
     category: "Calças",
     sizes: ["38", "40", "42", "44"],
     description: "Calça cargo com bolsos laterais, tecido resistente e confortável. Perfeita para o dia a dia com estilo.",
     badge: "30% OFF",
+    tag: "restam poucas unidades com desconto",
   },
   {
-    id: "3",
+    id: "ca2",
+    name: 'Calça Jogger "Night Runner"',
+    price: 199.90,
+    originalPrice: 279.90,
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=600&fit=crop",
+    category: "Calças",
+    sizes: ["38", "40", "42", "44"],
+    description: "Calça jogger preta com acabamento premium. Elástico no tornozelo e cintura.",
+    badge: "29% OFF",
+  },
+  {
+    id: "ca3",
+    name: 'Calça Moletom "Comfort Plus"',
+    price: 179.90,
+    originalPrice: 249.90,
+    image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=600&h=600&fit=crop",
+    category: "Calças",
+    sizes: ["38", "40", "42", "44"],
+    description: "Calça de moletom com interior peluciado. Máximo conforto para o dia a dia.",
+    badge: "28% OFF",
+  },
+
+  // Moletons
+  {
+    id: "m1",
     name: 'Moletom "Dark Matter"',
     price: 279.90,
     originalPrice: 399.90,
     image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop",
+    ],
     category: "Moletons",
     sizes: ["P", "M", "G", "GG"],
     description: "Moletom canguru em algodão fleece premium. Capuz ajustável e bolso frontal. Interior peluciado para máximo conforto.",
     badge: "30% OFF",
+    tag: "restam poucas unidades com desconto",
   },
   {
-    id: "4",
-    name: 'Fone Bluetooth Pro',
-    price: 199.90,
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop",
-    category: "Eletrônicos",
-    sizes: ["Único"],
-    description: "Fone de ouvido bluetooth com cancelamento de ruído, bateria de longa duração e som cristalino.",
+    id: "m2",
+    name: 'Moletom Oversized "Cloud Grey"',
+    price: 259.90,
+    originalPrice: 359.90,
+    image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&h=600&fit=crop",
+    category: "Moletons",
+    sizes: ["P", "M", "G", "GG"],
+    description: "Moletom oversized cinza com tecido macio e quente. Design minimalista.",
+    badge: "28% OFF",
   },
   {
-    id: "5",
+    id: "m3",
+    name: 'Moletom Zip "Tech Black"',
+    price: 299.90,
+    originalPrice: 429.90,
+    image: "https://images.unsplash.com/photo-1611312449412-6cefac5dc3e4?w=600&h=600&fit=crop",
+    category: "Moletons",
+    sizes: ["P", "M", "G", "GG"],
+    description: "Moletom com zíper completo, bolsos laterais e capuz. Acabamento tech wear.",
+    badge: "30% OFF",
+  },
+
+  // Bermudas
+  {
+    id: "b1",
     name: 'Bermuda "Urban Core"',
     price: 159.90,
     originalPrice: 199.90,
@@ -65,25 +159,82 @@ export const products: Product[] = [
     badge: "20% OFF",
   },
   {
-    id: "6",
-    name: 'Relógio Digital LED',
-    price: 89.90,
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop",
-    category: "Acessórios",
+    id: "b2",
+    name: 'Bermuda Cargo "Desert Sand"',
+    price: 169.90,
+    originalPrice: 229.90,
+    image: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&h=600&fit=crop",
+    category: "Bermudas",
+    sizes: ["38", "40", "42", "44"],
+    description: "Bermuda cargo com bolsos laterais e tecido resistente. Estilo militar moderno.",
+    badge: "26% OFF",
+  },
+
+  // Eletrônicos
+  {
+    id: "e1",
+    name: 'Fone Bluetooth Pro',
+    price: 199.90,
+    originalPrice: 299.90,
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=600&h=600&fit=crop",
+    ],
+    category: "Eletrônicos",
     sizes: ["Único"],
-    description: "Relógio digital com display LED, resistente à água e design moderno.",
+    description: "Fone de ouvido bluetooth com cancelamento de ruído ativo, bateria de 30h e som Hi-Fi cristalino.",
+    badge: "33% OFF",
+    tag: "restam poucas unidades com desconto",
   },
   {
-    id: "7",
+    id: "e2",
+    name: 'Smartwatch Sport X1',
+    price: 249.90,
+    originalPrice: 349.90,
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=600&fit=crop",
+    category: "Eletrônicos",
+    sizes: ["Único"],
+    description: "Smartwatch com monitor cardíaco, GPS integrado e resistência à água IP68.",
+    badge: "29% OFF",
+  },
+  {
+    id: "e3",
+    name: 'Caixa de Som Bluetooth "Bass Drop"',
+    price: 179.90,
+    originalPrice: 259.90,
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&h=600&fit=crop",
+    category: "Eletrônicos",
+    sizes: ["Único"],
+    description: "Caixa de som portátil à prova d'água com graves potentes. Bateria de 20h.",
+    badge: "31% OFF",
+  },
+  {
+    id: "e4",
+    name: 'Fone In-Ear TWS "Crystal Sound"',
+    price: 149.90,
+    originalPrice: 219.90,
+    image: "https://images.unsplash.com/photo-1590658268037-6bf12f032f55?w=600&h=600&fit=crop",
+    category: "Eletrônicos",
+    sizes: ["Único"],
+    description: "Fone in-ear true wireless com case de carregamento. Touch control e microfone integrado.",
+    badge: "32% OFF",
+  },
+
+  // Acessórios
+  {
+    id: "a1",
     name: 'Boné Snapback "XYTRON"',
     price: 89.90,
+    originalPrice: 119.90,
     image: "https://images.unsplash.com/photo-1588850561407-ed78c334e67a?w=600&h=600&fit=crop",
     category: "Acessórios",
     sizes: ["Único"],
     description: "Boné snapback com logo bordado XYTRON. Aba reta, ajuste traseiro e tecido de alta qualidade.",
+    badge: "25% OFF",
   },
   {
-    id: "8",
+    id: "a2",
     name: 'Mochila Tactical',
     price: 249.90,
     originalPrice: 349.90,
@@ -91,11 +242,53 @@ export const products: Product[] = [
     category: "Acessórios",
     sizes: ["Único"],
     description: "Mochila resistente com múltiplos compartimentos, ideal para uso diário ou viagens.",
+    badge: "29% OFF",
+  },
+  {
+    id: "a3",
+    name: 'Óculos de Sol "Aviador Classic"',
+    price: 129.90,
+    originalPrice: 179.90,
+    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=600&fit=crop",
+    category: "Acessórios",
+    sizes: ["Único"],
+    description: "Óculos de sol estilo aviador com proteção UV400 e armação metálica premium.",
     badge: "28% OFF",
+  },
+  {
+    id: "a4",
+    name: 'Carteira Slim "Minimalist"',
+    price: 79.90,
+    originalPrice: 119.90,
+    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&h=600&fit=crop",
+    category: "Acessórios",
+    sizes: ["Único"],
+    description: "Carteira slim em couro sintético premium. Design minimalista com proteção RFID.",
+    badge: "33% OFF",
+  },
+  {
+    id: "a5",
+    name: 'Relógio Digital LED',
+    price: 89.90,
+    originalPrice: 129.90,
+    image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&h=600&fit=crop",
+    category: "Acessórios",
+    sizes: ["Único"],
+    description: "Relógio digital com display LED, resistente à água e design esportivo moderno.",
+    badge: "31% OFF",
   },
 ];
 
 export const categories = ["Todos", "Camisetas", "Calças", "Moletons", "Bermudas", "Eletrônicos", "Acessórios"];
+
+export const categoryImages: { name: string; image: string; slug: string }[] = [
+  { name: "Camisetas", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop", slug: "Camisetas" },
+  { name: "Calças", image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300&h=300&fit=crop", slug: "Calças" },
+  { name: "Moletons", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=300&fit=crop", slug: "Moletons" },
+  { name: "Bermudas", image: "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=300&h=300&fit=crop", slug: "Bermudas" },
+  { name: "Eletrônicos", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop", slug: "Eletrônicos" },
+  { name: "Acessórios", image: "https://images.unsplash.com/photo-1588850561407-ed78c334e67a?w=300&h=300&fit=crop", slug: "Acessórios" },
+];
 
 export const reviews = [
   {
