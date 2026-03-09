@@ -1,7 +1,10 @@
 import { useCart } from "@/lib/cartStore";
 import { Link } from "react-router-dom";
-import { Trash2, CreditCard, QrCode, FileText } from "lucide-react";
+import { Trash2, CreditCard, QrCode, MessageCircle } from "lucide-react";
 import { useState } from "react";
+
+const PIX_KEY = "15997421264";
+const WHATSAPP_URL = `https://wa.me/55${PIX_KEY}?text=${encodeURIComponent("Olá! Segue o comprovante de pagamento do meu pedido na LOJA XYTRON.")}`;
 
 const Checkout = () => {
   const { items, removeItem, total, clearCart } = useCart();
@@ -72,11 +75,10 @@ const Checkout = () => {
 
             <div className="space-y-2 pt-2">
               <h3 className="text-xs uppercase tracking-wider text-muted-foreground font-display">Formas de Pagamento</h3>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 {[
                   { icon: QrCode, label: "Pix" },
                   { icon: CreditCard, label: "Cartão" },
-                  { icon: FileText, label: "Boleto" },
                 ].map(({ icon: Icon, label }) => (
                   <button key={label} className="flex flex-col items-center gap-1 p-3 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors text-xs">
                     <Icon className="w-5 h-5" />
@@ -84,6 +86,21 @@ const Checkout = () => {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Pix Key */}
+            <div className="bg-secondary rounded-lg p-4 space-y-2">
+              <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Chave Pix (Telefone)</p>
+              <p className="text-lg font-bold font-display text-primary select-all">{PIX_KEY}</p>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-medium text-success hover:underline mt-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Enviar comprovante de pagamento
+              </a>
             </div>
 
             <button className="w-full bg-primary text-primary-foreground font-bold py-3 rounded-lg hover:opacity-90 transition-opacity neon-glow">
