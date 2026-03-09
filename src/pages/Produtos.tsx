@@ -1,27 +1,39 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { products, categories } from "@/lib/mockData";
 import ProductCard from "@/components/ProductCard";
 import { SlidersHorizontal, X } from "lucide-react";
 
 const Produtos = () => {
-  const [category, setCategory] = useState("Todos");
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get("categoria") || "Todos";
+  const initialSearch = searchParams.get("busca") || "";
+
+  const [category, setCategory] = useState(initialCategory);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+
+  useEffect(() => {
+    setCategory(searchParams.get("categoria") || "Todos");
+    setSearchQuery(searchParams.get("busca") || "");
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
       if (category !== "Todos" && p.category !== category) return false;
       if (p.price < priceRange[0] || p.price > priceRange[1]) return false;
+      if (searchQuery && !p.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
       return true;
     });
-  }, [category, priceRange]);
+  }, [category, priceRange, searchQuery]);
 
   return (
     <div className="min-h-screen">
       <div className="container py-8">
         <div className="flex items-center justify-between mb-8">
           <h1 className="font-display text-3xl font-bold">
-            Nossos <span className="text-primary">Produtos</span>
+            {category !== "Todos" ? category : "Todos os"} <span className="text-primary">Produtos</span>
           </h1>
           <button
             onClick={() => setFiltersOpen(!filtersOpen)}
@@ -31,6 +43,13 @@ const Produtos = () => {
             Filtros
           </button>
         </div>
+
+        {searchQuery && (
+          <div className="mb-4 flex items-center gap-2">
+            <span className="text-sm text-muted-foreground">Resultados para: <strong className="text-foreground">"{searchQuery}"</strong></span>
+            <button onClick={() => setSearchQuery("")} className="text-xs text-primary hover:underline">Limpar</button>
+          </div>
+        )}
 
         <div className="flex gap-8">
           {/* Filters sidebar */}
@@ -88,6 +107,7 @@ const Produtos = () => {
 
           {/* Product grid */}
           <div className="flex-1">
+            <p className="text-sm text-muted-foreground mb-4">{filtered.length} produto(s) encontrado(s)</p>
             {filtered.length === 0 ? (
               <p className="text-center text-muted-foreground py-16">Nenhum produto encontrado.</p>
             ) : (

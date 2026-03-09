@@ -10,9 +10,6 @@ interface ProductCardProps {
 
 const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const { addItem } = useCart();
-  const discount = product.originalPrice
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
-    : 0;
 
   return (
     <motion.div
@@ -31,7 +28,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
         />
         {product.badge && (
           <span className="absolute top-3 left-3 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded">
-            {product.badge}
+            Economize {product.badge.replace(" OFF", "")}
           </span>
         )}
       </Link>
@@ -43,19 +40,19 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           </h3>
         </Link>
 
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-primary font-bold text-lg">
-            R$ {product.price.toFixed(2).replace(".", ",")}
-          </span>
+        <div className="flex items-center gap-2 mb-1">
           {product.originalPrice && (
             <span className="text-muted-foreground text-sm line-through">
               R$ {product.originalPrice.toFixed(2).replace(".", ",")}
             </span>
           )}
+          <span className="text-primary font-bold text-lg">
+            R$ {product.price.toFixed(2).replace(".", ",")}
+          </span>
         </div>
 
-        <p className="text-xs text-muted-foreground mb-3">
-          ou 12x de R$ {(product.price / 12).toFixed(2).replace(".", ",")}
+        <p className="text-xs text-muted-foreground mb-4">
+          ou em 12x de R$ {(product.price / 12).toFixed(2).replace(".", ",")}
         </p>
 
         <button
