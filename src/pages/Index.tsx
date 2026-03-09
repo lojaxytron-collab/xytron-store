@@ -15,7 +15,7 @@ const Index = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary to-background" />
         <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: "radial-gradient(circle at 20% 50%, hsl(199 100% 50% / 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(199 100% 50% / 0.1) 0%, transparent 50%)"
+          backgroundImage: "radial-gradient(circle at 20% 50%, hsl(var(--neon-glow) / 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(var(--neon-glow) / 0.1) 0%, transparent 50%)"
         }} />
         <div className="relative container text-center py-20">
           <motion.div
@@ -28,7 +28,7 @@ const Index = () => {
               <span className="text-primary neon-text">LOJA XYTRON</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Estilo, qualidade e preço justo. Moda streetwear para quem cria as próprias tendências.
+              Estilo, qualidade e preço justo. Tudo que você precisa em um só lugar.
             </p>
             <Link
               to="/produtos"
@@ -44,7 +44,7 @@ const Index = () => {
       {/* Categories marquee */}
       <div className="border-y border-border bg-card overflow-hidden py-3">
         <div className="animate-marquee whitespace-nowrap flex gap-8">
-          {["CAMISETAS", "CALÇAS", "MOLETONS", "JAQUETAS", "BERMUDAS", "ACESSÓRIOS", "CAMISETAS", "CALÇAS", "MOLETONS", "JAQUETAS", "BERMUDAS", "ACESSÓRIOS"].map((cat, i) => (
+          {["CAMISETAS", "ELETRÔNICOS", "MOLETONS", "ACESSÓRIOS", "BERMUDAS", "CALÇAS", "CAMISETAS", "ELETRÔNICOS", "MOLETONS", "ACESSÓRIOS", "BERMUDAS", "CALÇAS"].map((cat, i) => (
             <span key={i} className="text-sm font-display font-medium text-muted-foreground">
               {cat} <span className="text-primary mx-2">✦</span>
             </span>

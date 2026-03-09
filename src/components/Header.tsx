@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { ShoppingBag, Menu, X, Search } from "lucide-react";
+import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cartStore";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "@/components/ThemeToggle";
+import logoImg from "@/assets/logo-xytron.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,9 +28,17 @@ const Header = () => {
 
       <header className="sticky top-0 z-50 glass border-b border-border">
         <div className="container flex items-center justify-between h-16">
-          <Link to="/" className="font-display text-xl sm:text-2xl font-bold tracking-tight">
-            <span className="text-foreground">LOJA </span>
-            <span className="text-primary neon-text">XYTRON</span>
+          <Link to="/" className="flex items-center gap-2 font-display text-xl sm:text-2xl font-bold tracking-tight">
+            <img
+              src={logoImg}
+              alt="Logo LOJA XYTRON"
+              className="w-10 h-10 rounded-full animate-spin-slow object-cover"
+              style={{ background: "transparent" }}
+            />
+            <span>
+              <span className="text-foreground">LOJA </span>
+              <span className="text-primary neon-text">XYTRON</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -44,7 +54,8 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
             <button
               onClick={toggleCart}
               className="relative p-2 hover:text-primary transition-colors"
