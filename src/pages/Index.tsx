@@ -5,18 +5,11 @@ import { products, categoryImages, reviews } from "@/lib/mockData";
 import ProductCard from "@/components/ProductCard";
 import { useState, useEffect } from "react";
 import heroBanner from "@/assets/hero-banner.jpeg";
+import heroBanner2 from "@/assets/hero-banner-2.jpeg";
 
 const heroSlides = [
-  {
-    title: "ENVIAMOS PARA TODO BRASIL",
-    subtitle: "Os melhores produtos de primeira linha",
-    bg: heroBanner,
-  },
-  {
-    title: "ATÉ 30% OFF EM TUDO",
-    subtitle: "Promoção por tempo limitado — aproveite!",
-    bg: heroBanner,
-  },
+  { bg: heroBanner },
+  { bg: heroBanner2 },
 ];
 
 const Index = () => {
