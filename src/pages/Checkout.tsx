@@ -151,6 +151,7 @@ const Checkout = () => {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => { e.preventDefault(); window.open(WHATSAPP_URL, '_blank'); }}
                     className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] text-white font-bold py-2.5 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm"
                   >
                     <MessageCircle className="w-5 h-5" />
