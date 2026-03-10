@@ -4,17 +4,18 @@ import { motion } from "framer-motion";
 import { products, categoryImages, reviews } from "@/lib/mockData";
 import ProductCard from "@/components/ProductCard";
 import { useState, useEffect } from "react";
+import heroBanner from "@/assets/hero-banner.jpeg";
 
 const heroSlides = [
   {
     title: "ENVIAMOS PARA TODO BRASIL",
     subtitle: "Os melhores produtos de primeira linha",
-    bg: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&h=600&fit=crop",
+    bg: heroBanner,
   },
   {
     title: "ATÉ 30% OFF EM TUDO",
     subtitle: "Promoção por tempo limitado — aproveite!",
-    bg: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&h=600&fit=crop",
+    bg: heroBanner,
   },
 ];
 
