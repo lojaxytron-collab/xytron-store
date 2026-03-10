@@ -8,12 +8,12 @@ const Footer = () => {
       <div className="border-b border-border">
         <div className="container py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: Truck, title: "Frete grátis para todo o Brasil", desc: "Entrega garantida e segurada pelos Correios." },
-            { icon: HeadphonesIcon, title: "Suporte ao Cliente", desc: "Atendimento Seg. a Sex. 10h às 17h" },
-            { icon: Star, title: "Cliente Satisfeito", desc: "Prazo de envio 2 a 5 dias. Entrega em 1 semana." },
-            { icon: ShieldCheck, title: "Compra segura", desc: "Segurança de dados SSL." },
-          ].map((b, i) => (
-            <div key={i} className="flex items-start gap-3">
+          { icon: Truck, title: "Frete grátis para todo o Brasil", desc: "Entrega garantida e segurada pelos Correios." },
+          { icon: HeadphonesIcon, title: "Suporte ao Cliente", desc: "Atendimento Seg. a Sex. 10h às 17h" },
+          { icon: Star, title: "Cliente Satisfeito", desc: "Prazo de envio 2 a 5 dias. Entrega em 1 semana." },
+          { icon: ShieldCheck, title: "Compra segura", desc: "Segurança de dados SSL." }].
+          map((b, i) =>
+          <div key={i} className="flex items-start gap-3">
               <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                 <b.icon className="w-5 h-5 text-primary" />
               </div>
@@ -22,7 +22,7 @@ const Footer = () => {
                 <p className="text-xs text-muted-foreground">{b.desc}</p>
               </div>
             </div>
-          ))}
+          )}
         </div>
       </div>
 
@@ -60,13 +60,13 @@ const Footer = () => {
 
           <div>
             <h4 className="font-display font-semibold mb-4 text-sm uppercase tracking-wider">Atendimento</h4>
-            <p className="text-sm text-muted-foreground mb-4">Seg. a Sex. — 10h às 17h</p>
+            <p className="text-sm text-muted-foreground mb-4">Seg. a Seg. — 10h às 23h</p>
             <a
               href="https://wa.me/5515997421264"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-success text-foreground text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
-            >
+              className="inline-flex items-center gap-2 bg-success text-foreground text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+              
               <MessageCircle className="w-4 h-4" />
               WhatsApp
             </a>
@@ -77,8 +77,8 @@ const Footer = () => {
           © {new Date().getFullYear()} LOJA XYTRON. Todos os direitos reservados.
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;
