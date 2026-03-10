@@ -47,15 +47,6 @@ const Index = () => {
             className={`absolute inset-0 transition-opacity duration-700 ${i === currentSlide ? "opacity-100" : "opacity-0"}`}
           >
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${slide.bg})` }} />
-            <div className="absolute inset-0 bg-black/60" />
-            <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
-              <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-4 leading-tight">
-                {slide.title}
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl">
-                {slide.subtitle}
-              </p>
-            </div>
           </div>
         ))}
         {/* Dots */}
