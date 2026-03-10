@@ -14,7 +14,7 @@ const Footer = () => {
           { icon: ShieldCheck, title: "Compra segura", desc: "Segurança de dados SSL." }].
           map((b, i) =>
           <div key={i} className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 bg-primary/10 rounded-full items-center justify-center shrink-0 flex flex-row">
                 <b.icon className="w-5 h-5 text-primary" />
               </div>
               <div>

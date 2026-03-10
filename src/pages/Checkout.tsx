@@ -6,9 +6,9 @@ import { useState } from "react";
 const WHATSAPP_URL = "https://wa.me/5515997421264?text=Confirmar%20Pedido%20%F0%9F%93%A6%E2%98%91";
 
 const PIX_KEYS = [
-  { type: "E-mail", value: "lojaxytron@gmail.com", icon: Mail },
-  { type: "Telefone", value: "15997421264", icon: Phone },
-];
+{ type: "E-mail", value: "lojaxytron@gmail.com", icon: Mail },
+{ type: "Telefone", value: "15997421264", icon: Phone }];
+
 
 const Checkout = () => {
   const { items, removeItem, total, clearCart } = useCart();
@@ -27,8 +27,8 @@ const Checkout = () => {
       <div className="container py-20 text-center">
         <p className="text-muted-foreground mb-4">Seu carrinho está vazio.</p>
         <Link to="/produtos" className="text-primary hover:underline font-medium">Ver produtos</Link>
-      </div>
-    );
+      </div>);
+
   }
 
   return (
@@ -38,8 +38,8 @@ const Checkout = () => {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* Cart items */}
         <div className="lg:col-span-3 space-y-4">
-          {items.map((item) => (
-            <div key={`${item.product.id}-${item.size}`} className="flex gap-4 p-4 rounded-xl bg-card border border-border">
+          {items.map((item) =>
+          <div key={`${item.product.id}-${item.size}`} className="flex gap-4 p-4 rounded-xl bg-card border border-border">
               <img src={item.product.image} alt={item.product.name} className="w-20 h-20 object-cover rounded-lg" />
               <div className="flex-1">
                 <h3 className="font-medium text-sm">{item.product.name}</h3>
@@ -50,7 +50,7 @@ const Checkout = () => {
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>
-          ))}
+          )}
         </div>
 
         {/* Summary */}
@@ -63,8 +63,8 @@ const Checkout = () => {
                 value={coupon}
                 onChange={(e) => setCoupon(e.target.value)}
                 placeholder="Cupom de desconto"
-                className="flex-1 bg-secondary border border-border rounded-lg px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              />
+                className="flex-1 bg-secondary border border-border rounded-lg px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary" />
+              
               <button className="bg-secondary text-foreground text-sm px-4 py-2 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
                 Aplicar
               </button>
@@ -88,11 +88,11 @@ const Checkout = () => {
             <div className="space-y-2 pt-2">
               <h3 className="text-xs uppercase tracking-wider text-muted-foreground font-display">Nós Aceitamos</h3>
               <div className="flex flex-wrap gap-2">
-                {["Visa", "Mastercard", "Elo", "Pix"].map(m => (
-                  <span key={m} className="bg-secondary border border-border px-3 py-1.5 rounded text-xs font-medium">
+                {["Visa", "Mastercard", "Elo", "Pix"].map((m) =>
+                <span key={m} className="bg-secondary border border-border px-3 py-1.5 rounded text-xs font-medium">
                     {m}
                   </span>
-                ))}
+                )}
               </div>
             </div>
 
@@ -101,15 +101,15 @@ const Checkout = () => {
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => setShowPix(true)}
-                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}
-                >
+                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}>
+                  
                   <QrCode className="w-5 h-5" />
                   Pix
                 </button>
                 <button
                   onClick={() => setShowPix(false)}
-                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${!showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}
-                >
+                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${!showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}>
+                  
                   <CreditCard className="w-5 h-5" />
                   Cartão
                 </button>
@@ -117,30 +117,30 @@ const Checkout = () => {
             </div>
 
             {/* Pix Keys Section */}
-            {showPix && (
-              <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
+            {showPix &&
+            <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="bg-secondary rounded-lg p-4 space-y-3">
                   <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Chaves Pix</p>
-                  {PIX_KEYS.map(({ type, value, icon: Icon }) => (
-                    <div key={value} className="flex items-center gap-3 bg-background/50 rounded-lg p-3 border border-border">
+                  {PIX_KEYS.map(({ type, value, icon: Icon }) =>
+                <div key={value} className="flex items-center gap-3 bg-background/50 rounded-lg p-3 border border-border">
                       <Icon className="w-4 h-4 text-primary shrink-0" />
                       <div className="flex-1 min-w-0">
                         <p className="text-[10px] uppercase tracking-wider text-muted-foreground">{type}</p>
                         <p className="text-sm font-bold text-primary select-all truncate">{value}</p>
                       </div>
                       <button
-                        onClick={() => handleCopyKey(value)}
-                        className="shrink-0 p-1.5 rounded-md hover:bg-secondary transition-colors"
-                        title="Copiar chave"
-                      >
-                        {copiedKey === value ? (
-                          <Check className="w-4 h-4 text-success" />
-                        ) : (
-                          <Copy className="w-4 h-4 text-muted-foreground" />
-                        )}
+                    onClick={() => handleCopyKey(value)}
+                    className="shrink-0 p-1.5 rounded-md hover:bg-secondary transition-colors"
+                    title="Copiar chave">
+                    
+                        {copiedKey === value ?
+                    <Check className="w-4 h-4 text-success" /> :
+
+                    <Copy className="w-4 h-4 text-muted-foreground" />
+                    }
                       </button>
                     </div>
-                  ))}
+                )}
                 </div>
 
                 <div className="bg-secondary rounded-lg p-4 text-center space-y-3">
@@ -148,22 +148,22 @@ const Checkout = () => {
                     Envie o comprovante em nosso WhatsApp e vamos confirmar o pedido 🚀
                   </p>
                   <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => { e.preventDefault(); window.open(WHATSAPP_URL, '_blank'); }}
-                    className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] text-white font-bold py-2.5 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm"
-                  >
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {e.preventDefault();window.open(WHATSAPP_URL, '_blank');}}
+                  className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] text-white font-bold py-2.5 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm">
+                  
                     <MessageCircle className="w-5 h-5" />
                     Enviar comprovante via WhatsApp
                   </a>
                 </div>
               </div>
-            )}
+            }
 
-            <button className="w-full bg-primary text-primary-foreground font-bold py-3 rounded-lg hover:opacity-90 transition-opacity neon-glow">
-              Confirmar Pedido
-            </button>
+            
+
+            
 
             <p className="text-xs text-center text-muted-foreground">
               Vendido e entregue por <strong>LOJA XYTRON</strong>
@@ -171,8 +171,8 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Checkout;
