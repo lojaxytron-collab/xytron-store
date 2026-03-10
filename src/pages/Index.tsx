@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { products, categoryImages, reviews } from "@/lib/mockData";
 import ProductCard from "@/components/ProductCard";
 import { useState, useEffect } from "react";
+import heroBanner from "@/assets/hero-banner.jpeg";
 
 const heroSlides = [
   {
