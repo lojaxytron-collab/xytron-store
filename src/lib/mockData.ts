@@ -285,6 +285,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Carteira slim em couro sintético premium. Design minimalista com proteção RFID.",
     badge: "33% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/A4DLTEtUg-79,90",
   },
   {
     id: "a5",
