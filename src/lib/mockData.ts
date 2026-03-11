@@ -273,7 +273,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Óculos de sol estilo aviador com proteção UV400 e armação metálica premium.",
     badge: "28% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/A3DLTEtUg-129,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "a4",
