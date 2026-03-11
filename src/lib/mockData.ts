@@ -261,6 +261,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Mochila resistente com múltiplos compartimentos, ideal para uso diário ou viagens.",
     badge: "29% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/A2DLTEtUg-249,90",
   },
   {
     id: "a3",
