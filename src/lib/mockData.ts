@@ -58,7 +58,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Camiseta básica branca com tecido premium. Peça essencial para qualquer guarda-roupa.",
     badge: "29% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/VC3DLTEtUg-99,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "c4",
