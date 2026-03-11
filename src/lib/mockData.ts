@@ -168,6 +168,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Bermuda com tecido tech e acabamento premium. Elástico na cintura para maior conforto.",
     badge: "20% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/B1DLTEtUg-159,90",
   },
   {
     id: "b2",
