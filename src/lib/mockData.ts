@@ -199,6 +199,7 @@ export const products: Product[] = [
     description: "Fone de ouvido bluetooth com cancelamento de ruído ativo, bateria de 30h e som Hi-Fi cristalino.",
     badge: "33% OFF",
     tag: "restam poucas unidades com desconto",
+    paymentLink: "https://link.infinitepay.io/loja-ws/E1DLTEtUg-199,90",
   },
   {
     id: "e2",
