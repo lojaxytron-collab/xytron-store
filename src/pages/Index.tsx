@@ -15,6 +15,7 @@ const heroSlides = [
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const catScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {

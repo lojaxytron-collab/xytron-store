@@ -41,7 +41,7 @@ const App = () => {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/contato" element={<Contato />} />
-                <Route path="/rastreio" element={<Rastreio />} />
+                
                 <Route path="/politica-reembolso" element={<PoliticaReembolso />} />
                 <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
                 <Route path="/termos-de-uso" element={<TermosDeUso />} />
