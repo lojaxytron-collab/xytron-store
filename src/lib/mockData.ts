@@ -100,6 +100,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Calça jogger preta com acabamento premium. Elástico no tornozelo e cintura.",
     badge: "29% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/CA2DLTEtUg-199,90",
   },
   {
     id: "ca3",
