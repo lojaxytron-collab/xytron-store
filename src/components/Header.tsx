@@ -39,7 +39,7 @@ const Header = () => {
   { label: "Início", to: "/" },
   { label: "Sobre", to: "/sobre" },
   { label: "Contato", to: "/contato" },
-  { label: "Rastreio", to: "/rastreio" }];
+  ];
 
 
   const productCategories = categories.filter((c) => c !== "Todos");

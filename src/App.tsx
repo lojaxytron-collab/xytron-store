@@ -13,7 +13,7 @@ import ProdutoDetalhe from "./pages/ProdutoDetalhe";
 import Checkout from "./pages/Checkout";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
-import Rastreio from "./pages/Rastreio";
+
 import PoliticaReembolso from "./pages/PoliticaReembolso";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosDeUso from "./pages/TermosDeUso";
@@ -41,7 +41,7 @@ const App = () => {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/contato" element={<Contato />} />
-                <Route path="/rastreio" element={<Rastreio />} />
+                
                 <Route path="/politica-reembolso" element={<PoliticaReembolso />} />
                 <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
                 <Route path="/termos-de-uso" element={<TermosDeUso />} />

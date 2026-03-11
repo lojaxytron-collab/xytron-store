@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { Truck, ShieldCheck, MessageCircle, HeadphonesIcon, Star, ChevronRight, ChevronLeft } from "lucide-react";
+import { Truck, ShieldCheck, HeadphonesIcon, Star, ChevronRight, ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
-import { products, categoryImages, reviews } from "@/lib/mockData";
+import { products, categoryImages } from "@/lib/mockData";
+import { useRef } from "react";
 import ProductCard from "@/components/ProductCard";
 import { useState, useEffect } from "react";
 import heroBanner from "@/assets/hero-banner.jpeg";
@@ -14,6 +15,7 @@ const heroSlides = [
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const catScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -67,23 +69,41 @@ const Index = () => {
         </button>
       </section>
 
-      {/* Category Images Row */}
+      {/* Category Images Row - Scrollable */}
       <section className="container py-10">
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
-          {categoryImages.map((cat) => (
-            <Link
-              key={cat.slug}
-              to={`/produtos?categoria=${encodeURIComponent(cat.slug)}`}
-              className="group flex flex-col items-center gap-2"
-            >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-border group-hover:border-primary transition-colors">
-                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
-                {cat.name}
-              </span>
-            </Link>
-          ))}
+        <div className="relative group/scroll">
+          <button
+            onClick={() => catScrollRef.current?.scrollBy({ left: -200, behavior: 'smooth' })}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-background/80 border border-border rounded-full shadow-md opacity-0 group-hover/scroll:opacity-100 transition-opacity hover:bg-primary hover:text-primary-foreground"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <div
+            ref={catScrollRef}
+            className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth px-2 py-2"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {categoryImages.map((cat) => (
+              <Link
+                key={cat.slug}
+                to={`/produtos?categoria=${encodeURIComponent(cat.slug)}`}
+                className="group flex flex-col items-center gap-2 shrink-0"
+              >
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-border group-hover:border-primary transition-colors">
+                  <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors whitespace-nowrap">
+                  {cat.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <button
+            onClick={() => catScrollRef.current?.scrollBy({ left: 200, behavior: 'smooth' })}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-background/80 border border-border rounded-full shadow-md opacity-0 group-hover/scroll:opacity-100 transition-opacity hover:bg-primary hover:text-primary-foreground"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </section>
 
@@ -142,35 +162,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="container py-12">
-        <h2 className="font-display text-2xl font-bold text-center mb-8">
-          O que nossos <span className="text-primary">clientes</span> dizem
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {reviews.map((review, i) => (
-            <motion.div
-              key={review.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass rounded-xl p-5"
-            >
-              <div className="flex items-center gap-1 mb-3">
-                {Array.from({ length: review.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground mb-3">"{review.text}"</p>
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold">{review.name}</span>
-                <span className="text-muted-foreground">{review.date}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
