@@ -13,7 +13,7 @@ import ProdutoDetalhe from "./pages/ProdutoDetalhe";
 import Checkout from "./pages/Checkout";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
-import Rastreio from "./pages/Rastreio";
+
 import PoliticaReembolso from "./pages/PoliticaReembolso";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosDeUso from "./pages/TermosDeUso";
