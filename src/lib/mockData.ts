@@ -30,6 +30,7 @@ export const products: Product[] = [
     description: "Camiseta oversized premium com acabamento de primeira linha. Tecido 100% algodão penteado, caimento solto e confortável.",
     badge: "25% OFF",
     tag: "restam poucas unidades com desconto",
+    paymentLink: "https://link.infinitepay.io/loja-ws/VC1DLTEtUg-7gRfnDPUV-149,90",
   },
   {
     id: "c2",

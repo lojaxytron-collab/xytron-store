@@ -107,7 +107,14 @@ const Checkout = () => {
                   Pix
                 </button>
                 <button
-                  onClick={() => setShowPix(false)}
+                  onClick={() => {
+                    setShowPix(false);
+                    // If there's only one item with a payment link, redirect directly
+                    const itemWithLink = items.find(i => i.product.paymentLink);
+                    if (itemWithLink?.product.paymentLink) {
+                      window.open(itemWithLink.product.paymentLink, '_blank');
+                    }
+                  }}
                   className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${!showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}>
                   
                   <CreditCard className="w-5 h-5" />
@@ -115,6 +122,31 @@ const Checkout = () => {
                 </button>
               </div>
             </div>
+
+            {/* Card payment links per product */}
+            {!showPix && items.some(i => i.product.paymentLink) &&
+              <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
+                <div className="bg-secondary rounded-lg p-4 space-y-3">
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Pagar com Cartão</p>
+                  {items.filter(i => i.product.paymentLink).map((item) =>
+                    <a
+                      key={`${item.product.id}-${item.size}`}
+                      href={item.product.paymentLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-background/50 rounded-lg p-3 border border-border hover:border-primary transition-colors"
+                    >
+                      <img src={item.product.image} alt={item.product.name} className="w-10 h-10 rounded object-cover" />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium truncate">{item.product.name}</p>
+                        <p className="text-xs text-muted-foreground">Tam: {item.size} | Qtd: {item.quantity}</p>
+                      </div>
+                      <span className="text-primary font-bold text-sm shrink-0">Pagar →</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            }
 
             {/* Pix Keys Section */}
             {showPix &&
