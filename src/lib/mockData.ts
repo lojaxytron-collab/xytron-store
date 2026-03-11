@@ -297,7 +297,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Relógio digital com display LED, resistente à água e design esportivo moderno.",
     badge: "31% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/A5DLTEtUg-89,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
 ];
 
