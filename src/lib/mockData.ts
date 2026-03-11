@@ -88,7 +88,7 @@ export const products: Product[] = [
     description: "Calça cargo com bolsos laterais, tecido resistente e confortável. Perfeita para o dia a dia com estilo.",
     badge: "30% OFF",
     tag: "restam poucas unidades com desconto",
-    paymentLink: "https://link.infinitepay.io/loja-ws/CA1DLTEtUg-229,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "ca2",
