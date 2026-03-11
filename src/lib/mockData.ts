@@ -211,6 +211,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Smartwatch com monitor cardíaco, GPS integrado e resistência à água IP68.",
     badge: "29% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/E2DLTEtUg-249,90",
   },
   {
     id: "e3",
