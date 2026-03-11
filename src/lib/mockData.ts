@@ -180,6 +180,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Bermuda cargo com bolsos laterais e tecido resistente. Estilo militar moderno.",
     badge: "26% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/B2DLTEtUg-169,90",
   },
 
   // Eletrônicos
