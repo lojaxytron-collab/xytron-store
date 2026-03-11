@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Truck, ShieldCheck, HeadphonesIcon, Star, ChevronRight, ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
-import { products, categoryImages, reviews } from "@/lib/mockData";
+import { products, categoryImages } from "@/lib/mockData";
+import { useRef } from "react";
 import ProductCard from "@/components/ProductCard";
 import { useState, useEffect } from "react";
 import heroBanner from "@/assets/hero-banner.jpeg";
