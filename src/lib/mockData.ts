@@ -112,6 +112,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Calça de moletom com interior peluciado. Máximo conforto para o dia a dia.",
     badge: "28% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/CA3DLTEtUg-179,90",
   },
 
   // Moletons
