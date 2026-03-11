@@ -70,6 +70,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Camiseta tie dye com padrão único. Cada peça é exclusiva.",
     badge: "26% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/VC4DLTEtUg-139,90",
   },
 
   // Calças
