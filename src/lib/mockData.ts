@@ -130,6 +130,7 @@ export const products: Product[] = [
     description: "Moletom canguru em algodão fleece premium. Capuz ajustável e bolso frontal. Interior peluciado para máximo conforto.",
     badge: "30% OFF",
     tag: "restam poucas unidades com desconto",
+    paymentLink: "https://link.infinitepay.io/loja-ws/M1DLTEtUg-279,90",
   },
   {
     id: "m2",
