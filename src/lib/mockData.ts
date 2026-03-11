@@ -154,6 +154,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Moletom com zíper completo, bolsos laterais e capuz. Acabamento tech wear.",
     badge: "30% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/M3DLTEtUg-299,90",
   },
 
   // Bermudas
