@@ -235,6 +235,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Fone in-ear true wireless com case de carregamento. Touch control e microfone integrado.",
     badge: "32% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/E4DLTEtUg-149,90",
   },
 
   // Acessórios
