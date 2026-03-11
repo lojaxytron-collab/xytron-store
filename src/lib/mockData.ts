@@ -30,7 +30,7 @@ export const products: Product[] = [
     description: "Camiseta oversized premium com acabamento de primeira linha. Tecido 100% algodão penteado, caimento solto e confortável.",
     badge: "25% OFF",
     tag: "restam poucas unidades com desconto",
-    paymentLink: "https://link.infinitepay.io/loja-ws/VC1DLTEtUg-7gRfnDPUV-149,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "c2",
@@ -46,7 +46,7 @@ export const products: Product[] = [
     description: "Camiseta preta com estampa exclusiva streetwear. Tecido premium 100% algodão.",
     badge: "28% OFF",
     tag: "restam poucas unidades com desconto",
-    paymentLink: "https://link.infinitepay.io/loja-ws/VC2DLTEtUg-129,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "c3",
@@ -58,7 +58,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Camiseta básica branca com tecido premium. Peça essencial para qualquer guarda-roupa.",
     badge: "29% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/VC3DLTEtUg-99,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "c4",
@@ -70,7 +70,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Camiseta tie dye com padrão único. Cada peça é exclusiva.",
     badge: "26% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/VC4DLTEtUg-139,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
 
   // Calças
@@ -88,7 +88,7 @@ export const products: Product[] = [
     description: "Calça cargo com bolsos laterais, tecido resistente e confortável. Perfeita para o dia a dia com estilo.",
     badge: "30% OFF",
     tag: "restam poucas unidades com desconto",
-    paymentLink: "https://link.infinitepay.io/loja-ws/CA1DLTEtUg-229,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "ca2",
@@ -100,7 +100,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Calça jogger preta com acabamento premium. Elástico no tornozelo e cintura.",
     badge: "29% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/CA2DLTEtUg-199,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "ca3",
@@ -112,7 +112,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Calça de moletom com interior peluciado. Máximo conforto para o dia a dia.",
     badge: "28% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/CA3DLTEtUg-179,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
 
   // Moletons
@@ -130,7 +130,7 @@ export const products: Product[] = [
     description: "Moletom canguru em algodão fleece premium. Capuz ajustável e bolso frontal. Interior peluciado para máximo conforto.",
     badge: "30% OFF",
     tag: "restam poucas unidades com desconto",
-    paymentLink: "https://link.infinitepay.io/loja-ws/M1DLTEtUg-279,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "m2",
@@ -142,7 +142,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Moletom oversized cinza com tecido macio e quente. Design minimalista.",
     badge: "28% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/M2DLTEtUg-259,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "m3",
@@ -154,7 +154,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Moletom com zíper completo, bolsos laterais e capuz. Acabamento tech wear.",
     badge: "30% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/M3DLTEtUg-299,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
 
   // Bermudas
@@ -168,7 +168,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Bermuda com tecido tech e acabamento premium. Elástico na cintura para maior conforto.",
     badge: "20% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/B1DLTEtUg-159,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "b2",
@@ -180,7 +180,7 @@ export const products: Product[] = [
     sizes: ["38", "40", "42", "44"],
     description: "Bermuda cargo com bolsos laterais e tecido resistente. Estilo militar moderno.",
     badge: "26% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/B2DLTEtUg-169,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
 
   // Eletrônicos
@@ -199,7 +199,7 @@ export const products: Product[] = [
     description: "Fone de ouvido bluetooth com cancelamento de ruído ativo, bateria de 30h e som Hi-Fi cristalino.",
     badge: "33% OFF",
     tag: "restam poucas unidades com desconto",
-    paymentLink: "https://link.infinitepay.io/loja-ws/E1DLTEtUg-199,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "e2",
@@ -211,7 +211,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Smartwatch com monitor cardíaco, GPS integrado e resistência à água IP68.",
     badge: "29% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/E2DLTEtUg-249,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "e3",
@@ -223,7 +223,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Caixa de som portátil à prova d'água com graves potentes. Bateria de 20h.",
     badge: "31% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/E3DLTEtUg-179,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "e4",
@@ -235,7 +235,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Fone in-ear true wireless com case de carregamento. Touch control e microfone integrado.",
     badge: "32% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/E4DLTEtUg-149,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
 
   // Acessórios
@@ -249,7 +249,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Boné snapback com logo bordado XYTRON. Aba reta, ajuste traseiro e tecido de alta qualidade.",
     badge: "25% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/A1DLTEtUg-89,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "a2",
@@ -261,7 +261,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Mochila resistente com múltiplos compartimentos, ideal para uso diário ou viagens.",
     badge: "29% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/A2DLTEtUg-249,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "a3",
@@ -273,7 +273,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Óculos de sol estilo aviador com proteção UV400 e armação metálica premium.",
     badge: "28% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/A3DLTEtUg-129,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "a4",
@@ -285,7 +285,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Carteira slim em couro sintético premium. Design minimalista com proteção RFID.",
     badge: "33% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/A4DLTEtUg-79,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "a5",
@@ -297,7 +297,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Relógio digital com display LED, resistente à água e design esportivo moderno.",
     badge: "31% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/A5DLTEtUg-89,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
 ];
 
