@@ -46,6 +46,7 @@ export const products: Product[] = [
     description: "Camiseta preta com estampa exclusiva streetwear. Tecido premium 100% algodão.",
     badge: "28% OFF",
     tag: "restam poucas unidades com desconto",
+    paymentLink: "https://link.infinitepay.io/loja-ws/VC2DLTEtUg-129,90",
   },
   {
     id: "c3",
