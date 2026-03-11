@@ -142,35 +142,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="container py-12">
-        <h2 className="font-display text-2xl font-bold text-center mb-8">
-          O que nossos <span className="text-primary">clientes</span> dizem
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {reviews.map((review, i) => (
-            <motion.div
-              key={review.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass rounded-xl p-5"
-            >
-              <div className="flex items-center gap-1 mb-3">
-                {Array.from({ length: review.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground mb-3">"{review.text}"</p>
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold">{review.name}</span>
-                <span className="text-muted-foreground">{review.date}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 };
