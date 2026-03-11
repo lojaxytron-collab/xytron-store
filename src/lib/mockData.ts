@@ -249,6 +249,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Boné snapback com logo bordado XYTRON. Aba reta, ajuste traseiro e tecido de alta qualidade.",
     badge: "25% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/A1DLTEtUg-89,90",
   },
   {
     id: "a2",
