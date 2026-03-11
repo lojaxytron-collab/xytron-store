@@ -142,6 +142,7 @@ export const products: Product[] = [
     sizes: ["P", "M", "G", "GG"],
     description: "Moletom oversized cinza com tecido macio e quente. Design minimalista.",
     badge: "28% OFF",
+    paymentLink: "https://link.infinitepay.io/loja-ws/M2DLTEtUg-259,90",
   },
   {
     id: "m3",
