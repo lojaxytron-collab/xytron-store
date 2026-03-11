@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Truck, ShieldCheck, MessageCircle, HeadphonesIcon, Star, ChevronRight, ChevronLeft } from "lucide-react";
+import { Truck, ShieldCheck, HeadphonesIcon, Star, ChevronRight, ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { products, categoryImages, reviews } from "@/lib/mockData";
 import ProductCard from "@/components/ProductCard";
