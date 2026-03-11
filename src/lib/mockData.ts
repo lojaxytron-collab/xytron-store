@@ -223,7 +223,7 @@ export const products: Product[] = [
     sizes: ["Único"],
     description: "Caixa de som portátil à prova d'água com graves potentes. Bateria de 20h.",
     badge: "31% OFF",
-    paymentLink: "https://link.infinitepay.io/loja-ws/E3DLTEtUg-179,90",
+    paymentLink: "https://api.whatsapp.com/send/?phone=5515997421264&text=Comprar%20via%20cart%C3%A3o+%EF%BF%BD%EF%BF%BD&type=phone_number&app_absent=0",
   },
   {
     id: "e4",
