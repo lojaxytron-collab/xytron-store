@@ -1,20 +1,22 @@
 import { useCart } from "@/lib/cartStore";
 import { Link } from "react-router-dom";
-import { Trash2, CreditCard, QrCode, MessageCircle, Mail, Phone, Copy, Check } from "lucide-react";
+import { Trash2, CreditCard, QrCode, MessageCircle, Mail, Phone, Copy, Check, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const WHATSAPP_URL = "https://wa.me/5515997421264?text=Confirmar%20Pedido%20%F0%9F%93%A6%E2%98%91";
 
 const PIX_KEYS = [
-{ type: "E-mail", value: "lojaxytron@gmail.com", icon: Mail },
-{ type: "Telefone", value: "15997421264", icon: Phone }];
-
+  { type: "E-mail", value: "lojaxytron@gmail.com", icon: Mail },
+  { type: "Telefone", value: "15997421264", icon: Phone },
+];
 
 const Checkout = () => {
   const { items, removeItem, total, clearCart } = useCart();
   const [coupon, setCoupon] = useState("");
   const [showPix, setShowPix] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleCopyKey = (value: string) => {
     navigator.clipboard.writeText(value);
@@ -22,13 +24,40 @@ const Checkout = () => {
     setTimeout(() => setCopiedKey(null), 2000);
   };
 
+  const handleStripeCheckout = async () => {
+    setIsProcessing(true);
+    try {
+      const cartItems = items.map((item) => ({
+        name: item.product.name,
+        price: item.product.price,
+        quantity: item.quantity,
+        size: item.size,
+        image: item.product.image,
+      }));
+
+      const { data, error } = await supabase.functions.invoke("create-payment", {
+        body: { items: cartItems },
+      });
+
+      if (error) throw error;
+      if (data?.url) {
+        window.location.href = data.url;
+      }
+    } catch (err) {
+      console.error("Stripe checkout error:", err);
+      alert("Erro ao processar pagamento. Tente novamente.");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
   if (items.length === 0) {
     return (
       <div className="container py-20 text-center">
         <p className="text-muted-foreground mb-4">Seu carrinho está vazio.</p>
         <Link to="/produtos" className="text-primary hover:underline font-medium">Ver produtos</Link>
-      </div>);
-
+      </div>
+    );
   }
 
   return (
@@ -38,8 +67,8 @@ const Checkout = () => {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* Cart items */}
         <div className="lg:col-span-3 space-y-4">
-          {items.map((item) =>
-          <div key={`${item.product.id}-${item.size}`} className="flex gap-4 p-4 rounded-xl bg-card border border-border">
+          {items.map((item) => (
+            <div key={`${item.product.id}-${item.size}`} className="flex gap-4 p-4 rounded-xl bg-card border border-border">
               <img src={item.product.image} alt={item.product.name} className="w-20 h-20 object-cover rounded-lg" />
               <div className="flex-1">
                 <h3 className="font-medium text-sm">{item.product.name}</h3>
@@ -50,7 +79,7 @@ const Checkout = () => {
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>
-          )}
+          ))}
         </div>
 
         {/* Summary */}
@@ -63,8 +92,8 @@ const Checkout = () => {
                 value={coupon}
                 onChange={(e) => setCoupon(e.target.value)}
                 placeholder="Cupom de desconto"
-                className="flex-1 bg-secondary border border-border rounded-lg px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary" />
-              
+                className="flex-1 bg-secondary border border-border rounded-lg px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              />
               <button className="bg-secondary text-foreground text-sm px-4 py-2 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors">
                 Aplicar
               </button>
@@ -88,11 +117,11 @@ const Checkout = () => {
             <div className="space-y-2 pt-2">
               <h3 className="text-xs uppercase tracking-wider text-muted-foreground font-display">Nós Aceitamos</h3>
               <div className="flex flex-wrap gap-2">
-                {["Visa", "Mastercard", "Elo", "Pix"].map((m) =>
-                <span key={m} className="bg-secondary border border-border px-3 py-1.5 rounded text-xs font-medium">
+                {["Visa", "Mastercard", "Elo", "Pix"].map((m) => (
+                  <span key={m} className="bg-secondary border border-border px-3 py-1.5 rounded text-xs font-medium">
                     {m}
                   </span>
-                )}
+                ))}
               </div>
             </div>
 
@@ -101,78 +130,75 @@ const Checkout = () => {
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => setShowPix(true)}
-                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}>
-                  
+                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}
+                >
                   <QrCode className="w-5 h-5" />
                   Pix
                 </button>
                 <button
-                  onClick={() => {
-                    setShowPix(false);
-                    // If there's only one item with a payment link, redirect directly
-                    const itemWithLink = items.find(i => i.product.paymentLink);
-                    if (itemWithLink?.product.paymentLink) {
-                      window.open(itemWithLink.product.paymentLink, '_blank');
-                    }
-                  }}
-                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${!showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}>
-                  
+                  onClick={() => setShowPix(false)}
+                  className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-colors text-xs ${!showPix ? 'bg-primary text-primary-foreground' : 'bg-secondary hover:bg-primary hover:text-primary-foreground'}`}
+                >
                   <CreditCard className="w-5 h-5" />
                   Cartão
                 </button>
               </div>
             </div>
 
-            {/* Card payment links per product */}
-            {!showPix && items.some(i => i.product.paymentLink) &&
+            {/* Card payment via Stripe */}
+            {!showPix && (
               <div className="space-y-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="bg-secondary rounded-lg p-4 space-y-3">
                   <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Pagar com Cartão</p>
-                  {items.filter(i => i.product.paymentLink).map((item) =>
-                    <a
-                      key={`${item.product.id}-${item.size}`}
-                      href={item.product.paymentLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 bg-background/50 rounded-lg p-3 border border-border hover:border-primary transition-colors"
-                    >
-                      <img src={item.product.image} alt={item.product.name} className="w-10 h-10 rounded object-cover" />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium truncate">{item.product.name}</p>
-                        <p className="text-xs text-muted-foreground">Tam: {item.size} | Qtd: {item.quantity}</p>
-                      </div>
-                      <span className="text-primary font-bold text-sm shrink-0">Pagar →</span>
-                    </a>
-                  )}
+                  <p className="text-sm text-muted-foreground">
+                    Pagamento seguro via Stripe. Aceita Visa, Mastercard, Elo e mais.
+                  </p>
+                  <button
+                    onClick={handleStripeCheckout}
+                    disabled={isProcessing}
+                    className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50"
+                  >
+                    {isProcessing ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Processando...
+                      </>
+                    ) : (
+                      <>
+                        <CreditCard className="w-5 h-5" />
+                        Pagar R$ {total().toFixed(2).replace(".", ",")}
+                      </>
+                    )}
+                  </button>
                 </div>
               </div>
-            }
+            )}
 
             {/* Pix Keys Section */}
-            {showPix &&
-            <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
+            {showPix && (
+              <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="bg-secondary rounded-lg p-4 space-y-3">
                   <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Chaves Pix</p>
-                  {PIX_KEYS.map(({ type, value, icon: Icon }) =>
-                <div key={value} className="flex items-center gap-3 bg-background/50 rounded-lg p-3 border border-border">
+                  {PIX_KEYS.map(({ type, value, icon: Icon }) => (
+                    <div key={value} className="flex items-center gap-3 bg-background/50 rounded-lg p-3 border border-border">
                       <Icon className="w-4 h-4 text-primary shrink-0" />
                       <div className="flex-1 min-w-0">
                         <p className="text-[10px] uppercase tracking-wider text-muted-foreground">{type}</p>
                         <p className="text-sm font-bold text-primary select-all truncate">{value}</p>
                       </div>
                       <button
-                    onClick={() => handleCopyKey(value)}
-                    className="shrink-0 p-1.5 rounded-md hover:bg-secondary transition-colors"
-                    title="Copiar chave">
-                    
-                        {copiedKey === value ?
-                    <Check className="w-4 h-4 text-success" /> :
-
-                    <Copy className="w-4 h-4 text-muted-foreground" />
-                    }
+                        onClick={() => handleCopyKey(value)}
+                        className="shrink-0 p-1.5 rounded-md hover:bg-secondary transition-colors"
+                        title="Copiar chave"
+                      >
+                        {copiedKey === value ? (
+                          <Check className="w-4 h-4 text-success" />
+                        ) : (
+                          <Copy className="w-4 h-4 text-muted-foreground" />
+                        )}
                       </button>
                     </div>
-                )}
+                  ))}
                 </div>
 
                 <div className="bg-secondary rounded-lg p-4 text-center space-y-3">
@@ -180,22 +206,18 @@ const Checkout = () => {
                     Envie o comprovante em nosso WhatsApp e vamos confirmar o pedido 🚀
                   </p>
                   <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => {e.preventDefault();window.open(WHATSAPP_URL, '_blank');}}
-                  className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] text-white font-bold py-2.5 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm">
-                  
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => { e.preventDefault(); window.open(WHATSAPP_URL, '_blank'); }}
+                    className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] text-primary-foreground font-bold py-2.5 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm"
+                  >
                     <MessageCircle className="w-5 h-5" />
                     Enviar comprovante via WhatsApp
                   </a>
                 </div>
               </div>
-            }
-
-            
-
-            
+            )}
 
             <p className="text-xs text-center text-muted-foreground">
               Vendido e entregue por <strong>LOJA XYTRON</strong>
@@ -203,8 +225,8 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-    </div>);
-
+    </div>
+  );
 };
 
 export default Checkout;

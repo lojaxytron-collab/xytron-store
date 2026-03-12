@@ -17,6 +17,7 @@ import Contato from "./pages/Contato";
 import PoliticaReembolso from "./pages/PoliticaReembolso";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosDeUso from "./pages/TermosDeUso";
+import PaymentSuccess from "./pages/PaymentSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => {
                 <Route path="/produtos" element={<Produtos />} />
                 <Route path="/produto/:id" element={<ProdutoDetalhe />} />
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/payment-success" element={<PaymentSuccess />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/contato" element={<Contato />} />
                 
