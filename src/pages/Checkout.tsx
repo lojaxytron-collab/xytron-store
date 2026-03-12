@@ -24,7 +24,7 @@ const Checkout = () => {
     setTimeout(() => setCopiedKey(null), 2000);
   };
 
-  const handleStripeCheckout = async () => {
+  const handleStripeCheckout = async (paymentMethod: "card" | "pix") => {
     setIsProcessing(true);
     try {
       const cartItems = items.map((item) => ({
@@ -36,7 +36,7 @@ const Checkout = () => {
       }));
 
       const { data, error } = await supabase.functions.invoke("create-payment", {
-        body: { items: cartItems },
+        body: { items: cartItems, paymentMethod },
       });
 
       if (error) throw error;
@@ -154,7 +154,7 @@ const Checkout = () => {
                     Pagamento seguro via Stripe. Aceita Visa, Mastercard, Elo e mais.
                   </p>
                   <button
-                    onClick={handleStripeCheckout}
+                    onClick={() => handleStripeCheckout("card")}
                     disabled={isProcessing}
                     className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50"
                   >
@@ -174,11 +174,36 @@ const Checkout = () => {
               </div>
             )}
 
-            {/* Pix Keys Section */}
+            {/* Pix payment via Stripe */}
             {showPix && (
               <div className="space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
                 <div className="bg-secondary rounded-lg p-4 space-y-3">
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Chaves Pix</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Pagar com Pix</p>
+                  <p className="text-sm text-muted-foreground">
+                    Pague via Pix com QR Code gerado automaticamente pelo Stripe.
+                  </p>
+                  <button
+                    onClick={() => handleStripeCheckout("pix")}
+                    disabled={isProcessing}
+                    className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold py-3 px-5 rounded-lg hover:opacity-90 transition-opacity text-sm disabled:opacity-50"
+                  >
+                    {isProcessing ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Gerando QR Code...
+                      </>
+                    ) : (
+                      <>
+                        <QrCode className="w-5 h-5" />
+                        Pagar R$ {total().toFixed(2).replace(".", ",")} via Pix
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                {/* Manual Pix keys as fallback */}
+                <div className="bg-secondary rounded-lg p-4 space-y-3">
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-display">Ou use nossas chaves Pix</p>
                   {PIX_KEYS.map(({ type, value, icon: Icon }) => (
                     <div key={value} className="flex items-center gap-3 bg-background/50 rounded-lg p-3 border border-border">
                       <Icon className="w-4 h-4 text-primary shrink-0" />
