@@ -17,6 +17,7 @@ import Contato from "./pages/Contato";
 import PoliticaReembolso from "./pages/PoliticaReembolso";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosDeUso from "./pages/TermosDeUso";
+import PaymentSuccess from "./pages/PaymentSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
