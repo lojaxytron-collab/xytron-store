@@ -13,11 +13,13 @@ import ProdutoDetalhe from "./pages/ProdutoDetalhe";
 import Checkout from "./pages/Checkout";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 
 import PoliticaReembolso from "./pages/PoliticaReembolso";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosDeUso from "./pages/TermosDeUso";
-import PaymentSuccess from "./pages/PaymentSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,25 +34,38 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Header />
-            <CartDrawer />
-            <main className="min-h-screen">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/produtos" element={<Produtos />} />
-                <Route path="/produto/:id" element={<ProdutoDetalhe />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/payment-success" element={<PaymentSuccess />} />
-                <Route path="/sobre" element={<Sobre />} />
-                <Route path="/contato" element={<Contato />} />
-                
-                <Route path="/politica-reembolso" element={<PoliticaReembolso />} />
-                <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
-                <Route path="/termos-de-uso" element={<TermosDeUso />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
+            <Routes>
+              {/* Admin routes (no header/footer) */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+
+              {/* Store routes */}
+              <Route
+                path="*"
+                element={
+                  <>
+                    <Header />
+                    <CartDrawer />
+                    <main className="min-h-screen">
+                      <Routes>
+                        <Route path="/" element={<Index />} />
+                        <Route path="/produtos" element={<Produtos />} />
+                        <Route path="/produto/:id" element={<ProdutoDetalhe />} />
+                        <Route path="/checkout" element={<Checkout />} />
+                        <Route path="/sobre" element={<Sobre />} />
+                        <Route path="/contato" element={<Contato />} />
+                        <Route path="/payment-success" element={<PaymentSuccess />} />
+                        <Route path="/politica-reembolso" element={<PoliticaReembolso />} />
+                        <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+                        <Route path="/termos-de-uso" element={<TermosDeUso />} />
+                        <Route path="*" element={<NotFound />} />
+                      </Routes>
+                    </main>
+                    <Footer />
+                  </>
+                }
+              />
+            </Routes>
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>
